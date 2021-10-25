@@ -46,6 +46,7 @@ PRIN, 8:00 AM
 
 ## Database:
 
+```
 db.set(key, value):
     ```Sets value associated with a key```
     ```No return value```
@@ -55,9 +56,11 @@ db.fetch(key):
 db.keys():
     ```Returns list of all keys in database```
     ```Else None```
+```
 
 Key-value pair
 
+```
 [
     {
         'train': 'NYC1',
@@ -81,6 +84,7 @@ Key-value pair
     },
 ]
 
+```
 ## Q/A:
 1) Why flask? 
     Was considering FASTApi but since this is just a quick prototype and doesn't have any speed requirements I used flask
