@@ -1,8 +1,6 @@
 # Transit-Info
 
-Single train station 
-Multiple trains 
-Manage schedules of different trains for 1 station
+Manage schedules of different trains for a station
 
 ## Problem Statement
 
@@ -83,8 +81,8 @@ Key-value pair
         'times': ["8:00", "9:30", "11:00", "12:30", "2:00", "3:30", "5:00", "7:30"]
     },
 ]
-
 ```
+
 ## Q/A:
 1) Why flask? 
     Was considering FASTApi but since this is just a quick prototype and doesn't have any speed requirements I used flask
