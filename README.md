@@ -9,8 +9,7 @@ Names and times of trains that come to the station
 ```
 1) I should be able to add a new train line: 
 
-NYCP
-9, 10, 11, 12, 1, 2, 3, 4, 5
+NYCP: [9, 10, 11, 12, 1, 2, 3, 4, 5]
 
 1.a) Check to see if value exists 
 1.b) Check to see if train name is 4 AN char
@@ -25,9 +24,9 @@ Input: 10:45
 
 Output: 
 
-NYC1, 12:00 PM
-NEWR, 12:00 PM
-TOMO, 12:00 PM
+NYC1, 12:00 PM,
+NEWR: 12:00 PM,
+TOMO 12:00 PM, 
 HOBK, 12:00 PM
 PRIN, 12:00 PM
 
