@@ -58,30 +58,30 @@ db.keys():
 Key-value pair
 
 ```
-[
-    {
-        'train': 'NYC1',
-        'times': ["8:00", "9:30", "11:00", "12:30", "2:00", "3:30", "5:00", "7:30"]
-    },
-    {
-        'train': 'NWRK',
-        'times': ["8:00", "9:30", "11:00", "12:30", "2:00", "3:30", "5:00", "7:30"]
-    },
-    {
-        'train': 'TOMO',
-        'times': ["8:00", "9:30", "11:00", "12:30", "2:00", "3:30", "5:00", "7:30"]
-    },
-    {
-        'train': 'HOBK',
-        'times': ["8:00", "9:30", "11:00", "12:30", "2:00", "3:30", "5:00", "7:30"]
-    },
-    {
-        'train': 'PRIN',
-        'times': ["8:00", "9:30", "11:00", "12:30", "2:00", "3:30", "5:00", "7:30"]
-    },
-]
+{
+    "NYC1": "[08:00, 09:30, 11:00, 12:30, 14:00, 15:30, 16:00, 18:00]",
+    "NWRK": "[08:00, 09:30, 11:00, 12:30, 14:00, 15:30, 16:00, 18:00]",
+    "TOMO": "[08:00, 09:30, 11:00, 12:30, 14:00, 15:30, 16:00, 18:00]",
+    "HOBK": "[08:00, 09:30, 11:00, 12:30, 14:00, 15:30, 16:00, 18:00]",
+    "PRIN": "[08:00, 09:30, 11:00, 12:30, 14:00, 15:30, 16:00, 18:00]"
+}  
 ```
 
 ## Q/A:
 1) Why flask? 
     Was considering FASTApi but since this is just a quick prototype and doesn't have any speed requirements I used flask
+2) Accepted time formats is 24 hrs 
+```
+Time format that match:
+1. “01:00”, “02:00”, “13:00”,
+2. “1:00”, “2:00”, “13:01”,
+3. “23:59″,”15:00”
+4. “00:00″,”0:00”
+
+Time format doesn’t match:
+1. “24:00” – hour is out of range [0-23]
+2. “12:60” – minute is out of range [00-59]
+3. “0:0” – invalid format for minute, at least 2 digits
+4. “13:1” – invalid format for minute, at least 2 digits
+5. “101:00” – hour is out of range [0-23]
+```
