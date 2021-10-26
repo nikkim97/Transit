@@ -73,14 +73,11 @@ Key-value pair
 2) Accepted time formats is 24 hrs 
 ```
 Time format that match:
-1. “01:00”, “02:00”, “13:00”,
-2. “1:00”, “2:00”, “13:01”,
-3. “23:59″,”15:00”
-4. “00:00″,”0:00”
+1. “01:00”, “1:00”, “02:00”, “2:00”, “13:00”
+2. “23:59″,”15:00”, “00:00″,”0:00”
 
 Time format doesn’t match:
-1. “24:00” – hour is out of range [0-23]
-2. “12:60” – minute is out of range [00-59]
-3. “0:0” or "11:9" – invalid format for minute, at least 2 digits
-5. “101:00” – hour is out of range [0-23]
+1. “24:00” or “12:60” – hour and min is out of range [0-23] & [00-59]
+2. “0:0” or "11:9" – invalid format for minute, at least 2 digits
+3. “101:00” – hour is out of range [0-23]
 ```
