@@ -81,7 +81,6 @@ Time format that match:
 Time format doesn’t match:
 1. “24:00” – hour is out of range [0-23]
 2. “12:60” – minute is out of range [00-59]
-3. “0:0” – invalid format for minute, at least 2 digits
-4. “13:1” – invalid format for minute, at least 2 digits
+3. “0:0” or "11:9" – invalid format for minute, at least 2 digits
 5. “101:00” – hour is out of range [0-23]
 ```
