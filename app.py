@@ -1,6 +1,7 @@
 from flask import Flask
 from flask_restful import Resource, Api, reqparse
 import pandas as pd
+import time
 import ast
 
 app = Flask(__name__)
@@ -29,6 +30,10 @@ class Trains(Resource):
             return {
                 'message': f"'{new_train}' needs to be 4 characters and alphanumeric"
             }, 401
+        if is_time_formatted(args['Times']) not True:
+            return {
+                'message': "All time values need to be in H:M format"
+            }, 401
         else:
             new_data = pd.DataFrame({
                 'Train': new_train,
@@ -40,6 +45,13 @@ class Trains(Resource):
         data.to_csv('Transit-Info.csv')
         return {'data': data.to_dict()}, 200  # return data with 200 OK
     
+    def is_time_formatted(input):
+        for x in input:
+            if time.strptime(x, '%H:%M'):
+                return True
+            else:
+                return False
+
 api.add_resource(Trains, '/trains') 
 
 if __name__ == '__main__':
