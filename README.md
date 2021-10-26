@@ -14,7 +14,7 @@ NYCP: "[08:00, 09:30, 11:00, 12:30]",
 1.a) Check to see if value exists 
 1.b) Check to see if train name is 4 alphanumeric char
 1.c) Check to see if the time values are in correct time format
-
+1.d) All times must be unique and sorted
 ```
 
 ```
@@ -73,7 +73,7 @@ Key-value pair
 2) Accepted time formats is 24 hrs 
 ```
 Time format that match:
-1. “01:00”, “1:00”, “02:00”, “2:00”, “13:00”
+1. “01:00”, “13:00”,“23:00”
 2. “23:59″,”15:00”, “00:00″,”0:00”
 
 Time format doesn’t match:

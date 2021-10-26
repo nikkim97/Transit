@@ -23,7 +23,8 @@ class Trains(Resource):
         new_train = args['Train_name'].upper()
         new_times = args['Times']
         times_list = ut.convert_str_to_list(new_times)
-        
+        converted_list = '[%s]' % ", ".join(map(str, times_list))
+
         if new_train in list(data.keys()):
             return {
                 'message': f"{new_train}' already exists."
@@ -39,7 +40,7 @@ class Trains(Resource):
         else:
             new_data = pd.DataFrame({
                 "Trains": new_train,
-                "Times": [new_times]
+                "Times": [converted_list]
             })
         new_data.to_csv('Transit-Info.csv', mode='a', index=False, header=False)
         return pd.read_csv('Transit-Info.csv', header = 0, index_col=0, squeeze=True).to_dict(), 200
