@@ -12,7 +12,7 @@ Names and times of trains that come to the station
 NYCP: [9, 10, 11, 12, 1, 2, 3, 4, 5]
 
 1.a) Check to see if value exists 
-1.b) Check to see if train name is 4 AN char
+1.b) Check to see if train name is 4 alphanumeric char
 1.c) Check to see if the time values are in correct time format
 
 ```
@@ -67,7 +67,7 @@ Key-value pair
 }  
 ```
 
-## Q/A:
+## FAQ:
 1) Why flask? 
     Was considering FASTApi but since this is just a quick prototype and doesn't have any speed requirements I used flask
 2) Accepted time formats is 24 hrs 
