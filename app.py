@@ -1,7 +1,7 @@
 from flask import Flask
 from flask_restful import Resource, Api, reqparse
-import pandas as pd
 import time
+import db_func as db
 import utilities as ut
 
 app = Flask(__name__)
@@ -9,9 +9,8 @@ api = Api(app)
 
 class Times(Resource):
     def post(self):
-        data = pd.read_csv('Transit-Info.csv', header = 0, index_col=0, squeeze=True).to_dict()
         parse = reqparse.RequestParser()
-        
+
         parse.add_argument('Time', required=True, help="Need to specify train time")
         args = parse.parse_args()
         given_time = args['Time']
@@ -22,15 +21,17 @@ class Times(Resource):
             }, 400
         
         mapping_times = {} 
-        for train, times in data.items():
-            converted = ut.convert_str_to_list(times)
+        for train in db.keys():
+            converted = ut.convert_str_to_list(db.fetch(train))
             for time_val in converted:
                 if time_val in mapping_times:
                     mapping_times[time_val].append(train)
                 else:
                     mapping_times[time_val] = [train]
+
         greater_list = [i for i in sorted(mapping_times.keys()) if i >= given_time]
         lesser_list = [i for i in sorted(mapping_times.keys()) if i < given_time]
+
         for time_value in greater_list:
             if len(mapping_times[time_value])>=2:
                 return f"'{time_value}','{mapping_times[time_value]}'", 200
@@ -43,23 +44,23 @@ class Times(Resource):
 
 class Trains(Resource):
     def get(self):
-        data = pd.read_csv('Transit-Info.csv', header=0, index_col=0, squeeze=True).to_dict()
+        data = ut.return_dict()
         return data, 200
 
     def post(self):
-        data = pd.read_csv('Transit-Info.csv', header=0, index_col=0, squeeze=True)
         parse = reqparse.RequestParser()
         
         parse.add_argument('Train', required=True, help="Need to specify Train name")
         parse.add_argument('Times', required=True, help="Need to specify Train times")
         
         args = parse.parse_args()
+        
         new_train = args['Train'].upper()
         new_times = args['Times']
         times_list = ut.convert_str_to_list(new_times)
         converted_list = '[%s]' % ", ".join(map(str, times_list))
 
-        if new_train in list(data.keys()):
+        if new_train in db.keys():
             return {
                 'message': f"'{new_train}' already exists."
             }, 400
@@ -72,16 +73,11 @@ class Trains(Resource):
                 'message': "Please make sure time entry is in [] and in HH:MM 24 hour format. Ex: [08:00, 09:30, 16:00, 18:00]"
             }, 400
         else:
-            new_data = pd.DataFrame({
-                'Trains': new_train,
-                'Times': [converted_list]
-            })
-        new_data.to_csv('Transit-Info.csv', mode='a', index=False, header=False)
-        return pd.read_csv('Transit-Info.csv', header = 0, index_col=0, squeeze=True).to_dict(), 200
-
+            db.set(new_train, new_times)
+            return ut.return_dict(), 200
 
 api.add_resource(Trains, '/trains') 
 api.add_resource(Times, '/times') 
 
 if __name__ == '__main__':
-    app.run()  # run our Flask app
+    app.run()

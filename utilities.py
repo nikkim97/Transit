@@ -1,5 +1,5 @@
 import re
-import time
+import db_func as db
 
 def convert_str_to_list(times):
     """ 
@@ -31,14 +31,12 @@ def valid_timelist_format(list_arg):
         return False
     return True
 
-def get_next_time(list_str, value):
+def return_dict():
     """
-    Checks list of times to find next train
+    Creates a dict of key:value pairs from the database
     """
-    value = time.strptime(value, '%H:%M')
-    for time_var in list_str:
-        time_var = time.strptime(time_var, '%H:%M')
-        if value<time_var:
-            return time.strftime("%H:%M", time_var)
-            break
-    return list_str[0]
+    data = {}
+    for key in db.keys():
+        value = db.fetch(key)
+        data[key] = value
+    return data

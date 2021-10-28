@@ -28,22 +28,13 @@ Input: 10:45
 
 Output: 
 
-NYC1, 12:00 PM,
-NEWR: 12:00 PM,
-TOMO 12:00 PM, 
-HOBK, 12:00 PM
-PRIN, 12:00 PM
+12:00: [NYC1, NWRK]
 
 Input 7:45 PM
 
-NYC1, 8:00 AM
-NEWR, 8:00 AM
-TOMO, 8:00 PM
-HOBK, 8:00 AM
-PRIN, 8:00 AM
+8:00: [TOMO, HOBK]
 
 2.a) Check to see if input is in correct time format
-2.b) Check to see if all times match
 ```
 
 ## Database:
