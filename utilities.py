@@ -1,4 +1,5 @@
 import re
+import time
 
 def convert_str_to_list(times):
     """ 
@@ -18,7 +19,7 @@ def validate_time_format(list_times):
     
     """
     for times in list_times:
-        if not re.match("([01][0-9]|2[0-3]):[0-5][0-9]", times):
+        if not re.match("^([01][0-9]|2[0-3]):[0-5][0-9]$", times):
            return False 
     return True
 
@@ -30,3 +31,14 @@ def valid_timelist_format(list_arg):
         return False
     return True
 
+def get_next_time(list_str, value):
+    """
+    Checks list of times to find next train
+    """
+    value = time.strptime(value, '%H:%M')
+    for time_var in list_str:
+        time_var = time.strptime(time_var, '%H:%M')
+        if value<time_var:
+            return time.strftime("%H:%M", time_var)
+            break
+    return list_str[0]

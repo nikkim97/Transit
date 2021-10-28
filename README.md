@@ -9,16 +9,20 @@ Names and times of trains that come to the station
 ```
 1) I should be able to add a new train line: 
 
-NYCP: "[08:00, 09:30, 11:00, 12:30]",
+API Request Example:
+
+Train=NYCP
+Times=[08:00, 09:30, 11:00, 12:30]
 
 1.a) Check to see if value exists 
 1.b) Check to see if train name is 4 alphanumeric char
 1.c) Check to see if the time values are in correct time format
 1.d) All times must be unique and sorted
+
 ```
 
 ```
-2) I should be able to provide a time value and get back all next incoming trains: 
+2) I should be able to provide a time value and get back all next trains coming at the same time: 
 
 Input: 10:45
 
@@ -39,6 +43,7 @@ HOBK, 8:00 AM
 PRIN, 8:00 AM
 
 2.a) Check to see if input is in correct time format
+2.b) Check to see if all times match
 ```
 
 ## Database:
@@ -81,3 +86,30 @@ Time format doesn’t match:
 2. “0:0” or "11:9" – invalid format for minute, at least 2 digits
 3. “101:00” – hour is out of range [0-23]
 ```
+
+
+
+input: 9
+
+answer: 
+
+[(9:30: nyc, prin), (10:45, tomo, hobk), (11: nyc, nwrk), (12:30: nyc), (14: nyc), (15:30: nyc), (16: nyc), (18: nyc)]
+
+input: 19
+
+answer: 8:00
+
+[(8:00: nyc), (9:30: nyc), (11: nyc), (12:30: nyc), (14: nyc), (15:30: nyc), (16: nyc), (18: nyc)]]
+[(8:00: nyc), (9:30: nyc), (11: nyc), (12:30: nyc), (14: nyc), (15:30: nyc), (16: nyc), (18: nyc)]]
+
+TOMO,"[08:00]"
+HOBK,"[15:30, 16:00, 18:00]"
+PRIN,"[9:30]"
+
+input: 15
+
+answer: none
+
+[]
+[(15:30: hobk), (16:00: hobk), (18:00: hobk)]
+[(15:30: hobk), (16:00: hobk), (18:00: hobk)]
