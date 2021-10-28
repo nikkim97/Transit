@@ -86,30 +86,3 @@ Time format doesn’t match:
 2. “0:0” or "11:9" – invalid format for minute, at least 2 digits
 3. “101:00” – hour is out of range [0-23]
 ```
-
-
-
-input: 9
-
-answer: 
-
-[(9:30: nyc, prin), (10:45, tomo, hobk), (11: nyc, nwrk), (12:30: nyc), (14: nyc), (15:30: nyc), (16: nyc), (18: nyc)]
-
-input: 19
-
-answer: 8:00
-
-[(8:00: nyc), (9:30: nyc), (11: nyc), (12:30: nyc), (14: nyc), (15:30: nyc), (16: nyc), (18: nyc)]]
-[(8:00: nyc), (9:30: nyc), (11: nyc), (12:30: nyc), (14: nyc), (15:30: nyc), (16: nyc), (18: nyc)]]
-
-TOMO,"[08:00]"
-HOBK,"[15:30, 16:00, 18:00]"
-PRIN,"[9:30]"
-
-input: 15
-
-answer: none
-
-[]
-[(15:30: hobk), (16:00: hobk), (18:00: hobk)]
-[(15:30: hobk), (16:00: hobk), (18:00: hobk)]
