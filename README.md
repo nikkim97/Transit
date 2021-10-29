@@ -12,8 +12,6 @@ API Request Example:
 Train=NYCP
 Times=[08:00, 09:30, 11:00, 12:30]
 
-----------------------------------------------
-
 1) I should be able to add a new train line: 
 
 1.a) Check to see if value exists 
@@ -33,8 +31,6 @@ Output: [12:00: [NYC1, NWRK]]
 Input 07:45
 
 Output: [8:00: [TOMO, HOBK]]
-
---------------------------------------------
 
 2) I should be able to provide a time value and get back all next trains coming at the same time: 
 
