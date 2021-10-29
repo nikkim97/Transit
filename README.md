@@ -64,9 +64,7 @@ Key-value pair
 ```
 
 ## FAQ:
-1) Why flask? 
-    Was considering FASTApi but since this is just a quick prototype and doesn't have any speed requirements I used flask
-2) Accepted time formats is 24 hrs 
+1) Accepted time formats is 24 hrs 
 ```
 Time format that match:
 1. “01:00”, “13:00”,“23:00”
