@@ -21,4 +21,4 @@ def keys():
     if data.keys():
         return list(data.keys())
     else:
-        return "None"
+        return None
