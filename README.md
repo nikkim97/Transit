@@ -63,7 +63,7 @@ db.keys():
 
 ## :monorail: To test app locally:
 ```
-Run application under src/app.py
+Create a virtual environment and run application under src/app.py
 
 Once local host is running,
 
