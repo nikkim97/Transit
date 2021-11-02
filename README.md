@@ -26,11 +26,11 @@ API Request Example:
 
 Time=12:00
 
-Output: [12:00: [NYC1, NWRK]]
+Output: "12:00: [NYC1, NWRK]"
 
 Time=19:45
 
-Output: [08:00: [TOMO, HOBK]]
+Output: "08:00: [TOMO, HOBK]"
 
 ```
 
