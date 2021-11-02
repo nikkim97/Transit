@@ -26,12 +26,10 @@ API Request Example:
 
 Time=12:00
 
-Return examples: 
-
-Input: 10:45
 Output: [12:00: [NYC1, NWRK]]
 
-Input 19:45
+Time=19:45
+
 Output: [08:00: [TOMO, HOBK]]
 
 ```
