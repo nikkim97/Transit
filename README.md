@@ -4,7 +4,7 @@ Manage schedules of different trains for a single station
 
 ## Problem Statement
 
-I should be able to add a new train line: 
+To add a new train line:
 
 ```
 API Request Example:
@@ -19,7 +19,7 @@ Times=[08:00, 09:30, 11:00, 12:30]
 
 ```
 
-I should get back next trains coming to the station after a given time
+To get all next trains coming to the station after a given time
 
 ```
 API Request Example:
