@@ -12,6 +12,10 @@ API Request Example:
 Train=NYCP
 Times=[08:00, 09:30, 11:00, 12:30]
 
+Output: { "NYCP": "[08:00, 09:30, 11:00, 12:30]" }
+
+Requirements: 
+
 1.a) Check to see if value exists 
 1.b) Check to see if train name is 4 alphanumeric char
 1.c) Check to see if the time values are in correct time format
