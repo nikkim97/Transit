@@ -92,11 +92,11 @@ class Times(Resource):
 
         for time_value in greater_list:
             if len(mapping_times[time_value])>=2:
-                return f"'{time_value}','{mapping_times[time_value]}'", 200
+                return f'{time_value} : {mapping_times[time_value]}', 200
 
         for time_value in lesser_list:
             if len(mapping_times[time_value])>=2:
-                return f"'{time_value}','{mapping_times[time_value]}'", 200
+                return f'{time_value} : {mapping_times[time_value]}', 200
 
         return f"No instances when multiple trains are in the station at {given_time}", 200
 
