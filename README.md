@@ -4,7 +4,7 @@ Manage schedules of different trains for a single station
 
 ## Problem Statement
 
-Names and times of trains that come to the station
+I should be able to add a new train line: 
 
 ```
 API Request Example:
@@ -12,14 +12,14 @@ API Request Example:
 Train=NYCP
 Times=[08:00, 09:30, 11:00, 12:30]
 
-1) I should be able to add a new train line: 
-
 1.a) Check to see if value exists 
 1.b) Check to see if train name is 4 alphanumeric char
 1.c) Check to see if the time values are in correct time format
 1.d) All times must be unique and sorted
 
 ```
+
+I should get back next trains coming to the station after a given time
 
 ```
 API Request Example:
