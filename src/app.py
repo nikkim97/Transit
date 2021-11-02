@@ -85,8 +85,10 @@ class Times(Resource):
                 else:
                     mapping_times[time_val] = [train]
 
-        greater_list = [i for i in sorted(mapping_times.keys()) if i >= given_time]
-        lesser_list = [i for i in sorted(mapping_times.keys()) if i < given_time]
+        sorted_keys = sorted(mapping_times.keys())
+
+        greater_list = [i for i in sorted_keys if i >= given_time]
+        lesser_list = [i for i in sorted_keys if i < given_time]
 
         for time_value in greater_list:
             if len(mapping_times[time_value])>=2:
