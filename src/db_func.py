@@ -20,5 +20,4 @@ def keys():
     data = pd.read_csv('Transit-Info.csv', header = 0, index_col=0, squeeze=True).to_dict()
     if data.keys():
         return list(data.keys())
-    else:
-        return None
+    return None

@@ -1,6 +1,5 @@
 from flask import Flask
 from flask_restful import Resource, Api, reqparse
-import time
 import db_func as db
 import utilities as ut
 
@@ -9,9 +8,18 @@ api = Api(app)
 
 class Times(Resource):
     def post(self):
+        """
+        Returns trains based on given time input
+
+            Parameters:
+                Time (string): Given time value
+
+            Returns:
+                Train (list): Train names associated with next time value
+        """
         parse = reqparse.RequestParser()
 
-        parse.add_argument('Time', required=True, help="Need to specify train time")
+        parse.add_argument('Time', required=True, help="Need to specify train time (Time: 16:00)")
         args = parse.parse_args()
         given_time = args['Time']
 
@@ -19,8 +27,8 @@ class Times(Resource):
             return {
                 'message': f"' Please make sure '{given_time}' is in correct HH:MM 24 hr format."
             }, 400
-        
-        mapping_times = {} 
+
+        mapping_times = {}
         for train in db.keys():
             converted = ut.convert_str_to_list(db.fetch(train))
             for time_val in converted:
@@ -39,22 +47,36 @@ class Times(Resource):
         for time_value in lesser_list:
             if len(mapping_times[time_value])>=2:
                 return f"'{time_value}','{mapping_times[time_value]}'", 200
-        
-        return f"'No instances when multiple trains are in the station at this time'", 200
+
+        return f"No instances when multiple trains are in the station at {given_time}", 200
 
 class Trains(Resource):
     def get(self):
+        """
+        Returns trains schedules
+            Train (Dict): Train names associated with time values
+        """
         data = ut.return_dict()
         return data, 200
 
     def post(self):
+        """
+        Add new train with times to existing database
+
+            Parameters:
+                Train (string): Name of train
+                Time (list): Given time values
+
+            Returns:
+                Train list (dict): Updated dict of trains and times
+        """
         parse = reqparse.RequestParser()
-        
-        parse.add_argument('Train', required=True, help="Need to specify Train name")
-        parse.add_argument('Times', required=True, help="Need to specify Train times")
-        
+
+        parse.add_argument('Train', required=True, help="Need to specify Train name (Train : NYC1)")
+        parse.add_argument('Times', required=True, help="Need to specify Train times (Times: [08:00, 17:00])")
+
         args = parse.parse_args()
-        
+
         new_train = args['Train'].upper()
         new_times = args['Times']
         times_list = ut.convert_str_to_list(new_times)
@@ -73,11 +95,11 @@ class Trains(Resource):
                 'message': "Please make sure time entry is in [] and in HH:MM 24 hour format. Ex: [08:00, 09:30, 16:00, 18:00]"
             }, 400
         else:
-            db.set(new_train, new_times)
+            db.set(new_train, converted_list)
             return ut.return_dict(), 200
 
-api.add_resource(Trains, '/trains') 
-api.add_resource(Times, '/times') 
+api.add_resource(Trains, '/trains')
+api.add_resource(Times, '/times')
 
 if __name__ == '__main__':
     app.run()

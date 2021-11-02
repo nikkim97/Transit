@@ -63,6 +63,19 @@ Key-value pair
 }  
 ```
 
+### How to run app locally:
+```
+Run application under src/app.py
+
+Once local host is running, 
+    1. To get train schedule: 
+        curl http://127.0.0.1:5000/trains
+    2. To add a new train:
+        curl -d "Train=NCP1&Times=[08:00, 09:30, 11:00, 12:30]" -X POST http://localhost:5000/trains
+    3. To get trains after specific time:
+        curl -d "Time=16:00" -X POST http://localhost:5000/times 
+```
+
 ## FAQ:
 1) Accepted time formats is 24 hrs 
 ```
