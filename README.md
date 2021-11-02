@@ -24,15 +24,16 @@ To get all next trains coming to the station after a given time
 ```
 API Request Example:
 
-Input: 10:45
+Time=12:00
 
-Output: [12:00: [NYC1, NWRK]]
+Return examples: 
 
-Input 07:45
+    Input: 10:45
+    Output: [12:00: [NYC1, NWRK]]
 
-Output: [8:00: [TOMO, HOBK]]
+    Input 07:45
+    Output: [8:00: [TOMO, HOBK]]
 
-2.a) Check to see if input is in correct time format
 ```
 
 ## :monorail: Database:
