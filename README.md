@@ -32,8 +32,6 @@ Input 07:45
 
 Output: [8:00: [TOMO, HOBK]]
 
-2) I should be able to provide a time value and get back all next trains coming at the same time: 
-
 2.a) Check to see if input is in correct time format
 ```
 
