@@ -1,6 +1,6 @@
 # Transit-Info
 
-Manage schedules of different trains for a station
+Manage schedules of different trains for a single station
 
 ## Problem Statement
 
