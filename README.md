@@ -1,4 +1,4 @@
-# Transit :station:
+# Transit :monorail:
 
 Manage schedules of different trains for a single station 
 
