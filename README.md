@@ -2,7 +2,7 @@
 
 Manage schedules of different trains for a single station 
 
-## Problem Statement
+## :monorail: Problem Statement
 
 To add a new train line:
 
@@ -35,7 +35,7 @@ Output: [8:00: [TOMO, HOBK]]
 2.a) Check to see if input is in correct time format
 ```
 
-## Database:
+## :monorail: Database:
 
 ```
 {
@@ -61,7 +61,7 @@ db.keys():
     ```Else None```
 ```
 
-## To test app locally:
+## :monorail: To test app locally:
 ```
 Run application under src/app.py
 
@@ -78,7 +78,7 @@ Once local host is running,
 
 ```
 
-## FAQ:
+## :monorail: FAQ:
 1) Accepted time format is 24 hrs 
 ```
 Time format that match:
@@ -90,4 +90,3 @@ Time format that don't match:
 2. “0:0” or "11:9" – invalid format for minute, at least 2 digits
 3. “101:00” – hour is out of range [0-23]
 ```
-:monorail:
