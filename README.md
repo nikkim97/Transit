@@ -85,14 +85,13 @@ Time format that don't match:
 "24:00" or "12:60" – hour and min is out of range [0-23] & [00-59]
 "0:0" or "11:9" – invalid format for minute, at least 2 digits
 "101:00" – hour is out of range [0-23]
-
+```
 
 2) Checks for adding a new train line
-
+```
 Requirements: 
 2.a) Check to see if train value exists in database
 2.b) Check to see if train name is 4 alphanumeric char
 2.c) Check to see if the time values are in correct time format
 2.d) All times must be unique and sorted
-
 ```
