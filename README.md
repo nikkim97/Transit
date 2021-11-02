@@ -1,6 +1,6 @@
-# Transit
+# Transit :train2:
 
-Manage schedules of different trains for a single station :train2:
+Manage schedules of different trains for a single station 
 
 ## Problem Statement
 
