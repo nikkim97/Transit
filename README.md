@@ -81,11 +81,11 @@ Once local host is running,
 1) Accepted time format is 24 hrs 
 ```
 Time format that match:
-1. “01:00”, “13:00”,“23:00”
-2. “23:59″,”15:00”, “00:00″,”0:00”
+1. "01:00", "13:00", "23:00"
+2. "23:59", "15:00", "00:00"
 
 Time format that don't match:
-1. “24:00” or “12:60” – hour and min is out of range [0-23] & [00-59]
-2. “0:0” or "11:9" – invalid format for minute, at least 2 digits
-3. “101:00” – hour is out of range [0-23]
+1. "24:00" or "12:60" – hour and min is out of range [0-23] & [00-59]
+2. "0:0" or "11:9" – invalid format for minute, at least 2 digits
+3. "101:00" – hour is out of range [0-23]
 ```
