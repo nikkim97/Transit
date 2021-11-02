@@ -61,8 +61,7 @@ db.keys():
     ```Else None```
 ```
 
-
-### How to run app locally:
+## To test app locally:
 ```
 Run application under src/app.py
 
