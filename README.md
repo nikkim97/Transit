@@ -28,11 +28,11 @@ Time=12:00
 
 Return examples: 
 
-    Input: 10:45
-    Output: [12:00: [NYC1, NWRK]]
+Input: 10:45
+Output: [12:00: [NYC1, NWRK]]
 
-    Input 07:45
-    Output: [8:00: [TOMO, HOBK]]
+Input 19:45
+Output: [08:00: [TOMO, HOBK]]
 
 ```
 
