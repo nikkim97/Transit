@@ -18,10 +18,12 @@ def test_times_post_200():
 
 def test_train_post_400():
     parms = {'Train': "NYC1", 'Times': "[19:00, 18:00]"}
+    test_test1 = {'message': "NYC1 already exists."}
     response = requests.post(HOST_URL + "/trains", params=parms)
-    assert response.status_code == 400
+    assert response.status_code == 400, response.text == test_test1
 
 def test_times_post_400():
     parms = {'Time': "8:00"}
+    test_test2 = {"message": "Please make sure '8:00' is in correct HH:MM 24 hr format."}
     response = requests.post(HOST_URL + "/times", params=parms)
-    assert response.status_code == 400
+    assert response.status_code == 400, response.text == test_text2

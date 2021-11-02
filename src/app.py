@@ -73,7 +73,7 @@ class Times(Resource):
 
         if not ut.validate_time_format([given_time]) :
             return {
-                'message': f"' Please make sure '{given_time}' is a valid HH:MM 24 hr format."
+                'message': f"Please make sure '{given_time}' is a valid HH:MM 24 hr format."
             }, 400
 
         mapping_times = {}
