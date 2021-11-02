@@ -1,4 +1,4 @@
-# Transit :monorail:
+# Transit
 
 Manage schedules of different trains for a single station 
 
@@ -90,3 +90,4 @@ Time format that don't match:
 2. “0:0” or "11:9" – invalid format for minute, at least 2 digits
 3. “101:00” – hour is out of range [0-23]
 ```
+:monorail:
