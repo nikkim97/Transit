@@ -1,4 +1,4 @@
-# Transit :train2:
+# Transit :station:
 
 Manage schedules of different trains for a single station 
 
