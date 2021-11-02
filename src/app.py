@@ -36,7 +36,7 @@ class Trains(Resource):
         new_train = args['Train'].upper()
         new_times = args['Times']
         times_list = ut.convert_str_to_list(new_times)
-        converted_list = '[%s]' % ", ".join(map(str, times_list))
+        times_list_str = '[%s]' % ", ".join(map(str, times_list))
 
         if new_train in db.keys():
             return {
@@ -51,7 +51,7 @@ class Trains(Resource):
                 'message': "Please make sure time entry is in [] and a valid HH:MM 24 hour format. Ex: [08:00, 09:30, 16:00, 18:00]"
             }, 400
         else:
-            db.set(new_train, converted_list)
+            db.set(new_train, times_list_str)
             return ut.return_dict(), 200
 
 class Times(Resource):
@@ -78,8 +78,8 @@ class Times(Resource):
 
         mapping_times = {}
         for train in db.keys():
-            converted = ut.convert_str_to_list(db.fetch(train))
-            for time_val in converted:
+            list_of_times = ut.convert_str_to_list(db.fetch(train))
+            for time_val in list_of_times:
                 if time_val in mapping_times:
                     mapping_times[time_val].append(train)
                 else:
