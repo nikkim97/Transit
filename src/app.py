@@ -55,7 +55,7 @@ class Trains(Resource):
             return ut.return_dict(), 200
 
 class Times(Resource):
-    def post(self):
+    def get(self):
         """
         Returns trains based on given time input
 
