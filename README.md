@@ -70,7 +70,7 @@ Once local host is running,
         curl -d "Train=NCP1&Times=[08:00, 09:30, 11:00, 12:30]" -X POST http://localhost:5000/trains
 
     3. To get trains after specific time:
-        curl -d "Time=16:00" -X POST http://localhost:5000/times
+        curl http://localhost:5000/times?Time=16:00
 
 ```
 
